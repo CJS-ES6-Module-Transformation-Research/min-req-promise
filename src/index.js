@@ -91,6 +91,11 @@ module.exports.request = (url, method, options = {}) => new Promise((resolve, re
   req.end();
 });
 
-for (const method of ['get', 'post', 'delete', 'put', 'head']) {
-  module.exports[method] = (url, options) => module.exports.request(url, method, options);
-}
+// for (const method of ['get', 'post', 'delete', 'put', 'head']) {
+//   module.exports[method] = (url, options) => module.exports.request(url, method, options);
+//}
+module.exports.get = (url, options) => module.exports.request(url, 'get', options);
+module.exports.post = (url, options) => module.exports.request(url, 'post', options);
+module.exports.delete = (url, options) => module.exports.request(url, 'delete', options);
+module.exports.put = (url, options) => module.exports.request(url, 'put', options);
+module.exports.head = (url, options) => module.exports.request(url, 'method', options);
